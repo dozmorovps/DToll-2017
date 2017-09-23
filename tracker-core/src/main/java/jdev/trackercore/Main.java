@@ -1,15 +1,13 @@
 package jdev.trackercore;
 
 import jdev.dto.PointDTO;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 
 public class Main {
 
     public static void main(String...args)throws Exception{
-        for(int i=0;i<5;i++){
-            PointDTO point = new PointDTO();
-            point.setLat(43);
-            System.out.println(point.toJson());
-            Thread.sleep(1000);
-        }
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(InjectionContext.class);
     }
 }

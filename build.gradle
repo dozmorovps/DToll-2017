@@ -7,8 +7,6 @@ buildscript {
     }
 }
 
-
-
 subprojects {
     apply plugin: 'java'
     repositories {
@@ -51,6 +49,8 @@ project(':server-core') {
 project(':tracker-ui') {
     dependencies {
         compile project(':common')
+
+
     }
     task fatJar(type: OneJar) {
         mainClass = 'jdev.trackerui.Main'
@@ -60,6 +60,14 @@ project(':tracker-ui') {
 project(':tracker-core') {
     dependencies {
         compile project(':common')
+        // https://mvnrepository.com/artifact/org.springframework/spring-context
+        compile group: 'org.springframework', name: 'spring-context', version: '4.3.11.RELEASE'
+        // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+        compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
+        // https://mvnrepository.com/artifact/de.micromata.jak/JavaAPIforKml
+        compile group: 'de.micromata.jak', name: 'JavaAPIforKml', version: '2.2.0'
+
+
     }
     task fatJar(type: OneJar) {
         mainClass = 'jdev.trackercore.Main'
