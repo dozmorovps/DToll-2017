@@ -17,18 +17,18 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class DataPeekService {
 
     @Autowired
-    private DataSendService dataSendService; //сервис для отправи сообщений
-
-    @Autowired
     private GPSService gpsService;
 
     private BlockingDeque<String> queue =  new LinkedBlockingDeque<>(100);
 
-    @Scheduled (cron = "$(cron.init)")
+    @Scheduled (cron = "${cron.init}")
     void put() throws InterruptedException, JsonProcessingException {
        gpsService.getCoordinate();
        queue.put(gpsService.toJson());
 
     }
 
+    public String take() throws InterruptedException {
+        return queue.take();
+    }
 }
