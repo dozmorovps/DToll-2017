@@ -3,6 +3,7 @@ package Services;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.BlockingDeque;
@@ -13,7 +14,7 @@ import java.util.concurrent.LinkedBlockingDeque;
  * @author Дозморов Павел Сергеевич
  */
 
-@Service
+@Component
 public class DataPeekService {
 
     @Autowired
@@ -25,7 +26,6 @@ public class DataPeekService {
     void put() throws InterruptedException, JsonProcessingException {
        gpsService.getCoordinate();
        queue.put(gpsService.toJson());
-
     }
 
     public String take() throws InterruptedException {
