@@ -9,9 +9,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 @Configuration
-@EnableScheduling
-@PropertySource("classpath:/app.properties")
 @ComponentScan({"Services","jdev.trackercore"})
+@PropertySource("classpath:/app.properties")
+@EnableScheduling
+
 public class InjectionContext {
 
     @Bean

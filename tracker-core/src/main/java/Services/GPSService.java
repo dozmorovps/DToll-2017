@@ -1,31 +1,24 @@
 package Services;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.micromata.opengis.kml.v_2_2_0.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
+import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
 @Component
 public class GPSService {
 
-    private double speed; //скорость
+    public double speed; //скорость
 
-    private double latitude; // широта
+    public double latitude; // широта
 
-    private double longitude; // долгота
+    public double longitude; // долгота
 
-    private double azimuth; // азимут
+    public double azimuth; // азимут
 
     public String toJson() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
